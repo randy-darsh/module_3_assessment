@@ -10,7 +10,9 @@ describe 'User visits the root page' do
 
     expect(current_path).to eq("/search")
     expect(page).to have_content("17 Total Stores")
-    expect(page).to have_content("")
+    expect(page).to have_content("Cherry Creek Shopping Center")
+    expect(page).to have_content("303-270-9189")
+    expect(page).to have_content("Mobile SAS")
   end
 end
 # As a user

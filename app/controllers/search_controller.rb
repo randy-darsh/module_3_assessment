@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @stations = BestbuyService.new({location: params[:q]}).stores
+    @stores = Store.filter_by_zip(params[:q])
   end
 end

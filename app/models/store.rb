@@ -1,12 +1,19 @@
-class Station
-  attr_reader :long_name, :city, :distance, :phone_number, :store_type
+class Store
+  attr_reader :longName, :city, :distance, :phone, :storeType
 
   def initialize(attributes = {})
     @attributes = attributes
-    @long_name = attributes[:longName]
+    @longName = attributes[:longName]
     @city = attributes[:city]
     @distance = attributes[:distance]
-    @phone_number = attributes[:phone]
-    @store_type = attributes[:storeType]
+    @phone = attributes[:phone]
+    @storeType = attributes[:storeType]
+  end
+
+   def self.filter_by_zip(zip)
+    stores = BestbuyService.stores_by_zip(zip)
+    stores[:stores].map do |store|
+      Store.new(store)
+    end
   end
 end
