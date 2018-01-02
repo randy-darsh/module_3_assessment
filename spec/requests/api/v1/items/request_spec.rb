@@ -6,12 +6,11 @@ describe 'User visits /api/v1/items' do
   end
 
   it 'they recieve a 200 JSON response containing all items' do
-    get :index
+    get '/api/v1/items'
 
-    expect(response).to be_success
-
+    expect(response.status).to eq(200)
     items = JSON.parse(response.body)
-    expect(items.count).to eq(5)
+    expect(items.count).to eq(5))
   end
 end
 
