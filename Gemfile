@@ -18,10 +18,13 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'faraday'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
+  gem 'pry-rails'
+  gem 'database_cleaner'
 end
 
 group :test do
