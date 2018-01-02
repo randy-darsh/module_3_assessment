@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @stations = NrelService.new({location: params[:q]}).stations
+    @stations = BestbuyService.new({location: params[:q]}).stores
   end
 end

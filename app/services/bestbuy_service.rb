@@ -4,8 +4,8 @@ class BestbuyService
   end
 
   def stores
-    response = Faraday.get("")
-    @stations = JSON.parse(response.body, symbolize_names: true)[:fuel_stations].map do |raw_store|
+    response = Faraday.get("https://api.bestbuy.com/v1/stores(postalCode=#{filter[:postalCode]})?format=json&show=longName,city,distance,phone,storeType&apiKey=#{ENV["BESTBUY_KEY"]}")
+    @stores = JSON.parse(response.body, symbolize_names: true)[:stores].map do |raw_store|
       Store.new(raw_store)
     end
   end
