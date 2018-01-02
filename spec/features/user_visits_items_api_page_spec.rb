@@ -6,7 +6,7 @@ describe 'User visits /api/v1/items' do
   end
 
   it 'they recieve a 200 JSON response containing all items' do
-    visit api_v1_items_path
+    get :index
 
     expect(response).to be_success
 
