@@ -18,15 +18,19 @@ gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'faraday'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
+  gem 'pry-rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :test do
   gem 'factory_bot_rails'
-  gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'vcr'
