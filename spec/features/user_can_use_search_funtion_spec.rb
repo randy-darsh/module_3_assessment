@@ -3,8 +3,14 @@ require 'rails_helper'
 describe 'User visits the root page' do
   it 'they can search for stuff' do
     visit "/"
-    save_and_open_page
-    fill_in
+
+    fill_in "q", with: 80202
+
+    click_on "Search"
+
+    expect(current_path).to eq("/search")
+    expect(page).to have_content("17 Total Stores")
+    expect(page).to have_content("")
   end
 end
 # As a user
