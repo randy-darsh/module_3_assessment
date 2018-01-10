@@ -10,7 +10,7 @@ class Store
     @storeType = attributes[:storeType]
   end
 
-   def self.filter_by_zip(zip)
+  def self.filter_by_zip(zip)
     stores = BestbuyService.stores_by_zip(zip)
     stores[:stores].map do |store|
       Store.new(store)
