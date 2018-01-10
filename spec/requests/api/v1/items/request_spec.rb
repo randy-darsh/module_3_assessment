@@ -37,15 +37,19 @@ describe 'User visits /api/v1/items' do
     # I receive a 204 JSON response if the record is successfully deleted
   end
 
-  # it 'they can create a JSON object with a post request' do
-  #   item = create(:item)
-  #   post '/api/v1/items', params: { item: item }
+  it 'they can create a JSON object wit  h a post request' do
+    post '/api/v1/items', params: { name: "Item Name",
+                                    description: "Item Description",
+                                    image_url: "www.thing.com" }
 
-  #   expect(response.status).to eq(201)
+    expect(response.status).to eq(201)
+    parsed_response = JSON.parse(response.body)
 
-  #   parsed_response = JSON.parse(response.body)
-  #   # When I send a POST request to `/api/v1/items` with a name, description, and image_url
-  #   # I receive a 201 JSON  response if the record is successfully created
-  #   # And I receive a JSON response containing the id, name, description, and image_url but not the created_at or updated_at
-  # end
+    expect(parsed_response["name"]).to eq("Item Name")
+    expect(parsed_response["description"]).to eq("Item Description")
+    expect(parsed_response["image_url"]).to eq("www.thing.com")
+    # When I send a POST request to `/api/v1/items` with a name, description, and image_url
+    # I receive a 201 JSON  response if the record is successfully created
+    # And I receive a JSON response containing the id, name, description, and image_url but not the created_at or updated_at
+  end
 end

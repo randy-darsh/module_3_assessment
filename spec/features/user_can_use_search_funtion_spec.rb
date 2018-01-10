@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'User visits the root page' do
-  it 'they can search for stuff' do
+describe 'User searches for by zipcode' do
+  it 'they see all stores within 25 of that zicode' do
     visit "/"
 
     fill_in "q", with: 80202
